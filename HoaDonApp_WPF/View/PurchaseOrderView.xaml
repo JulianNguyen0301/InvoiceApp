@@ -1,0 +1,326 @@
+﻿<UserControl x:Class="HoaDonApp_WPF.View.PurchaseOrderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HoaDonApp_WPF.View"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Background="{StaticResource ColorBackground}"
+             DataContext="{StaticResource PurchaseOrderVM}"
+             d:DesignHeight="700" d:DesignWidth="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <TextBlock Text="PURCHASE ORDER" Style="{StaticResource PageTitle}" VerticalAlignment="Center"></TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <materialDesign:Card Margin="5" Grid.Column="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBlock Text="Nhà cung cấp" Style="{StaticResource CardTitle}" TextAlignment="Center" VerticalAlignment="Center" FontSize="15"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" >
+                            <ComboBox ItemsSource="{Binding ListSupplier, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" DisplayMemberPath="NameSupplier" SelectedItem="{Binding SelectedSupplier}" Width="Auto" Style="{StaticResource ComboBox}" Margin="10 0 5 0" IsEditable="False"></ComboBox>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBlock Text="Địa chỉ NCC" Style="{StaticResource CardTitle}" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" ></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBox Text="{Binding Address1, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" x:Name="DiaChiNCC" Style="{StaticResource TextBoxMini}" Width="Auto" Margin="10 0 5 0"></TextBox>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBlock Text="Người phụ trách" Style="{StaticResource CardTitle}" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" ></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBox Text="{Binding PIC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource TextBoxMini}" Width="Auto" Margin="10 0 5 0"></TextBox>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBlock Text="Kho hàng" Style="{StaticResource CardTitle}" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" ></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBox Text="{Binding NameStock, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource TextBoxMini}" Width="Auto" Margin="10 0 5 0"></TextBox>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBlock Text="Địa chỉ kho" Style="{StaticResource CardTitle}" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" ></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBox Text="{Binding Address2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource TextBoxMini}" Width="Auto" Margin="10 0 5 0"></TextBox>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </materialDesign:Card>
+
+            <materialDesign:Card Margin="5"  Grid.Column="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBlock Text="Số phiếu" Style="{StaticResource CardTitle}" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" ></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBox Text="{Binding NO, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource TextBoxMini}" Width="Auto" Margin="10 0 5 0"></TextBox>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBlock Text="Thuế" Style="{StaticResource CardTitle}" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" ></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBox Text="{Binding Tax, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource TextBoxMini}" Width="Auto" Margin="10 0 5 0" FontSize="15" TextAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <TextBlock Text="%" TextAlignment="Center" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBlock Text="Ngày đặt hàng" Style="{StaticResource CardTitle}" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" ></TextBlock>
+                        </Grid>
+                        <DatePicker Grid.Column="1"
+                            Margin="10,0,10,0"
+                            materialDesign:HintAssist.Hint="Ngày đặt hàng"
+                            Style="{StaticResource DatePicker}"
+                            FontSize="15"
+                            SelectedDate="{Binding OrderDate, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBlock Text="Ngày giao hàng" Style="{StaticResource CardTitle}" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" ></TextBlock>
+                        </Grid>
+                        <DatePicker Grid.Column="1"
+                            Margin="10,0,10,0"
+                            materialDesign:HintAssist.Hint="Ngày giao hàng"
+                            Style="{StaticResource DatePicker}"
+                            FontSize="15"
+                            SelectedDate="{Binding ShipDate, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBlock Text="Ghi chú" Style="{StaticResource CardTitle}" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" ></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBox Text="{Binding Note, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource TextBoxMini}" Width="Auto" Margin="10 0 5 0"></TextBox>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
+        
+        <materialDesign:Card Grid.Row="2" Margin="5">
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0">
+                        <ComboBox 
+                                ItemsSource="{Binding ListProduct, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                DisplayMemberPath="NameProduct"
+                                SelectedItem="{Binding SelectedProduct, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                IsEditable="True"
+                                VerticalAlignment="Center"
+                                Margin="10 0 10 0"
+                                materialDesign:HintAssist.Hint="Tên sản phẩm"
+                                Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        </ComboBox>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <ComboBox 
+                            ItemsSource="{Binding ListUoM, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                            DisplayMemberPath="NameUoM"
+                            SelectedItem="{Binding SelectedUoM, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                            VerticalAlignment="Center"
+                            Margin="10 0 10 0"
+                            materialDesign:HintAssist.Hint="Đơn vị tính"
+                            Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        </ComboBox>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <TextBox 
+                                Text="{Binding PriceProduct, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                IsReadOnly="True"
+                                VerticalAlignment="Center"
+                                Margin="10 0 10 0"
+                                 materialDesign:HintAssist.Hint="Đơn giá"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                        </TextBox>
+                    </Grid>
+                    <Grid Grid.Column="3">
+                        <TextBox
+                            Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                            Margin="10 0 10 0" 
+                            VerticalAlignment="Center"
+                            materialDesign:HintAssist.Hint="Số lượng"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Button Content="ADD" Command="{Binding AddItem}" Foreground="White" Width="100" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"></Button>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Button Content="EDIT" Command="{Binding EditItem}" Width="100" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Background="{StaticResource ColorPrimaryL3}" BorderBrush="{StaticResource ColorPrimaryL3}"></Button>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Button Content="DELETE" Command="{Binding DeleteItem}" Background="{StaticResource ColorError}" BorderBrush="{StaticResource ColorError}" Width="100" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"></Button>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="3" Margin="5">
+        <Grid Grid.Row="3" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Button Content="Xuất phiếu" Command="{Binding ExportPO}" FontSize="15" Style="{StaticResource ButtonPrimary}" Width="180"></Button>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Button Content="Tạo phiếu mới" Command="{Binding NewPO}" FontSize="15" Style="{StaticResource ButtonPrimary}" Width="180"></Button>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Button Content="Product Management" Command="{Binding ProductManagementPO}" FontSize="15" Style="{StaticResource ButtonPrimary}" Width="180"></Button>
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <Button Content="Tổng" Command="{Binding TotalPO}" FontSize="15" Style="{StaticResource ButtonPrimary}" Width="180"></Button>
+                    </Grid>
+                </Grid>
+                <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+                    <ListView ItemsSource="{Binding POExportDatagrid, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" x:Name="ListName" SelectedItem="{Binding POSelectedListView, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        <ListView.Resources>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="STT" Width="50" DisplayMemberBinding="{Binding POIdDataGrid, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" ></GridViewColumn>
+                                <GridViewColumn Header="Mã hàng" Width="100" DisplayMemberBinding="{Binding POItemCodeDataGrid}" ></GridViewColumn>
+                                <GridViewColumn Header="Tên sản phẩm" Width="450" DisplayMemberBinding="{Binding POItemNameDataGrid}" ></GridViewColumn>
+                                <GridViewColumn Header="Số lượng" Width="100" DisplayMemberBinding="{Binding Path=POItemQuantityDataGrid}" ></GridViewColumn>
+                                <GridViewColumn Header="Đơn vị" Width="120" DisplayMemberBinding="{Binding POUoMDataGrid}"></GridViewColumn>
+                                <GridViewColumn Header="Đơn giá" Width="150" DisplayMemberBinding="{Binding POItemPriceDataGrid}" ></GridViewColumn>
+                                <GridViewColumn Header="Tổng" Width="150" DisplayMemberBinding="{Binding POItemSumDataGrid}" ></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                </ListView>
+                </ScrollViewer>
+            </Grid>
+        </materialDesign:Card>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="{Binding Giatritruocthue}" FontSize="15" Style="{StaticResource LabelRight}"></TextBlock>
+                <TextBlock Text="{Binding Thue}" FontSize="15" Style="{StaticResource LabelRight}"></TextBlock>
+                <TextBlock Text="{Binding Giatrisauthue}" FontSize="15" Style="{StaticResource LabelRight}" ></TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="{Binding UntaxedString, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontSize="15" Style="{StaticResource CardTitle}"></TextBlock>
+                <TextBlock Text="{Binding TaxString, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontSize="15" Style="{StaticResource CardTitle}"></TextBlock>
+                <TextBlock Text="{Binding TotalString, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontSize="15" Style="{StaticResource CardTitle}" ></TextBlock>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

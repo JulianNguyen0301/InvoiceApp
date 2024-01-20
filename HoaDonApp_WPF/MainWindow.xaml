@@ -1,0 +1,91 @@
+﻿<Window x:Class="HoaDonApp_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HoaDonApp_WPF"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:View="clr-namespace:HoaDonApp_WPF.View"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        Name="mainWindow"
+        Background="{StaticResource ColorBackground}"
+        DataContext="{StaticResource MainVM}"
+        Title="Invoice" Height="700" Width="1250">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}"
+                               CommandParameter="{Binding ElementName=mainWindow}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <TabControl TabStripPlacement="Left" Style="{StaticResource MaterialDesignFilledTabControl}">
+            <TabItem Height="60" Width="250" Padding="0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="viamlab.jpg" Stretch="Uniform" HorizontalAlignment="Left"></Image>
+                        <StackPanel>
+                            <TextBlock Width="190" Text="XIN CHÀO!" TextWrapping="Wrap" FontSize="20" TextAlignment="Center"></TextBlock>
+                            <TextBlock Width="190" Height="Auto" Text="ADMIN" TextWrapping="Wrap" FontSize="15" TextAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem.Header>
+                <Image Source="viamlab.jpg" Width="300"></Image>
+            </TabItem>
+            <TabItem Height="60" Width="250" Background="Red">
+                <TabItem.Header >
+                    <HeaderedContentControl  Content="THÔNG TIN HÓA ĐƠN"
+                                                     Foreground="White"
+                                                     HorizontalAlignment="Center"
+                                                     FontSize="20"
+                                                     FontWeight="Bold" Width="220
+                                                     " />
+                </TabItem.Header>
+                <View:InvoiceInformationView/>
+            </TabItem>
+            <TabItem Height="60" Width="250" Background="Red">
+                <TabItem.Header>
+                    <HeaderedContentControl  Content="PHIẾU MUA HÀNG"
+                                                     Foreground="White"
+                                                     HorizontalAlignment="Center"
+                                                     FontSize="20"
+                                                     FontWeight="Bold" />
+                </TabItem.Header>
+                <View:PurchaseOrderView></View:PurchaseOrderView>
+            </TabItem>
+            <TabItem Height="60" Width="250" Background="Red">
+                <TabItem.Header>
+                    <HeaderedContentControl  Content="PHIẾU NHẬN HÀNG"
+                                                     Foreground="White"
+                                                     HorizontalAlignment="Center"
+                                                     FontSize="20"
+                                                     FontWeight="Bold" />
+                </TabItem.Header>
+
+            </TabItem>
+            <TabItem Height="60" Width="250" Background="Red">
+                <TabItem.Header>
+                    <HeaderedContentControl  Content="ĐỐI CHIẾU 3 CHIỀU"
+                                     Foreground="White"
+                                     HorizontalAlignment="Center"
+                                     FontSize="20"
+                                     FontWeight="Bold" />
+                </TabItem.Header>
+
+            </TabItem>
+            <TabItem Height="60" Width="250" Background="Red">
+                <TabItem.Header>
+                    <HeaderedContentControl  Content="LỊCH SỬ"
+                                                    Foreground="White"
+                                                    HorizontalAlignment="Center"
+                                                    FontSize="20"
+                                                    FontWeight="Bold" />
+                </TabItem.Header>
+
+            </TabItem>
+            
+        </TabControl>
+    </Grid>
+</Window>

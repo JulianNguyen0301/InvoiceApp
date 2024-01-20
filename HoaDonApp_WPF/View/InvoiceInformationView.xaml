@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="HoaDonApp_WPF.View.InvoiceInformationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HoaDonApp_WPF.View"
+             mc:Ignorable="d" 
+             DataContext="{StaticResource InvoiceInformationVM}"
+             Background="{StaticResource ColorBackground}"
+             d:DesignHeight="700" d:DesignWidth="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <TextBlock Text="THÔNG TIN HÓA ĐƠN" Style="{StaticResource PageTitle}" VerticalAlignment="Center"></TextBlock>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Border BorderBrush="{StaticResource ColorPrimaryL3}" BorderThickness="1" Width="700" Height="50">
+                        <TextBox Text="{Binding TxtBox}" materialDesign:HintAssist.Hint="Vui lòng chọn hóa đơn để xuất dữ liệu!" FontSize="25" TextAlignment="Center" Width="700" Height="50" HorizontalAlignment="Center" IsEnabled="False"></TextBox>
+                    </Border>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Button Content="Thêm hóa đơn" Command="{Binding DataButton}" Style="{StaticResource ButtonPrimary}" Width="200" Margin="250,18,50,25"></Button>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Button Content="Xuất dữ liệu" IsEnabled="{Binding IsEnable}" Command="{Binding LoadingButton}" Style="{StaticResource ButtonPrimary}" Width="200" Margin="50,21,250,22"></Button>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+        <materialDesign:Card Grid.Row="1" Margin="10">
+            <Grid>
+                <DataGrid ItemsSource="{Binding InvoiceExport}" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="STT" Binding="{Binding InvoiceId}" Width="0.5*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Ký hiệu HĐ" Binding="{Binding InvoiceSign}" Width="*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Số hóa đơn" Binding="{Binding InvoiceNumber}" Width="*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Ngày xuất" Binding="{Binding InvoiceDate}" Width="*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Công ty" Binding="{Binding InvoiceSupplier}" Width="2.5*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Mặt Hàng" Binding="{Binding InvoiceItem}" Width="1.1*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Thành tiền(Chưa VAT)" Binding="{Binding InvoiceMoney}" Width="1.4*"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</UserControl>

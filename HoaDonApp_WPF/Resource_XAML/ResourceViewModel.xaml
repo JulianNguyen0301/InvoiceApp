@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewmodel="clr-namespace:HoaDonApp_WPF.ViewModel">
+
+    <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
+    <viewmodel:InvoiceInformationViewModel x:Key="InvoiceInformationVM"></viewmodel:InvoiceInformationViewModel>
+    <viewmodel:PurchaseOrderViewModel x:Key="PurchaseOrderVM"></viewmodel:PurchaseOrderViewModel>
+    <viewmodel:DoiChieu3ChieuViewModel x:Key="DoiChieu3ChieuVM"></viewmodel:DoiChieu3ChieuViewModel>
+    <viewmodel:GoodsReceiveNoteViewModel x:Key="GoodsReceiveNoteVM"></viewmodel:GoodsReceiveNoteViewModel>
+    <viewmodel:ProductManageViewModel x:Key="ProductManageVM"></viewmodel:ProductManageViewModel>
+    <viewmodel:AddProductViewModel x:Key="AddProductVM"></viewmodel:AddProductViewModel>
+    <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
+</ResourceDictionary>

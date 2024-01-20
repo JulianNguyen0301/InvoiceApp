@@ -1,0 +1,24 @@
+﻿<Application x:Class="HoaDonApp_WPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:HoaDonApp_WPF">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml"/>
+                <ResourceDictionary Source="Resource_XAML/Colors.xaml"/>
+                <ResourceDictionary Source="Resource_XAML/Buttons.xaml"/>
+                <ResourceDictionary Source="Resource_XAML/Text.xaml"/>
+                <ResourceDictionary Source="Resource_XAML/ComboBoxes.xaml"/>
+                <ResourceDictionary Source="Resource_XAML/DatePickers.xaml"/>
+                <ResourceDictionary Source="Resource_XAML/TextBoxes.xaml"/>
+                <ResourceDictionary Source="Resource_XAML/ResourceViewModel.xaml"/>
+                <materialDesign:CustomColorTheme BaseTheme="Light" PrimaryColor="{StaticResource ColorValuePrimary}" SecondaryColor="Lime" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
